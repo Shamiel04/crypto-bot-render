@@ -17,8 +17,11 @@ from telegram import Update
 from telegram.ext import Application, CommandHandler, ContextTypes
 
 # ========= CONFIG =========
-TG_TOKEN = "8093240618:AAG8o5u_tllnuzmL_hxQqGNilGn2bmIMyDo"  # Ton vrai token Telegram
-SCAN_TOKEN = "scan_secret_123"  # Token secret pour la route /scan
+
+import os
+TG_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
+SCAN_TOKEN = os.getenv("SCAN_TOKEN", "scan_secret_123")
+
 TZ = pytz.timezone("Europe/Paris")
 PUBLIC_BASE_URL = os.environ.get("RENDER_EXTERNAL_URL", "").rstrip("/")
 
